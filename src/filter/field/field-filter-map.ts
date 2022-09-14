@@ -102,7 +102,7 @@ export const LOOKUP_FILTER_MAP: Map<LookupFilter, BuildQueryFunction> = new Map(
         build: (prop, value) => {
           const rangeValues = value
             .split(',')
-            .map((rangeValue: string) => Number(rangeValue) || rangeValue)
+            .map((value: string) => Number(value) || value)
 
           return { [prop]: Between(rangeValues[0], rangeValues[1]) }
         },

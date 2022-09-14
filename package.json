@@ -11,7 +11,8 @@
     "test:watch": "jest --watch",
     "codecov": "codecov",
     "lint": "eslint src/** --fix",
-    "prepare": "tsc -p . && cp -r ./dist/* . && rm -rf ./dist"
+    "prepare": "tsc -p . && cp -r ./dist/* . && rm -rf ./dist",
+    "prepack": "tsc -p . && cp -r ./dist/* . && rm -rf ./dist"
   },
   "keywords": [
     "typeorm",
@@ -23,7 +24,8 @@
     "nest"
   ],
   "files": [
-    "**/*.js"
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "author": "rjlopezdev",
   "license": "MIT",
