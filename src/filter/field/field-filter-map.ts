@@ -100,8 +100,11 @@ export const LOOKUP_FILTER_MAP: Map<LookupFilter, BuildQueryFunction> = new Map(
       LookupFilter.BETWEEN,
       {
         build: (prop, value) => {
-          const rangeValues = value.split(',')
-          return { [prop]: Between(+rangeValues[0], +rangeValues[1]) }
+          const rangeValues = value
+            .split(',')
+            .map((rangeValue: string) => Number(rangeValue) || rangeValue)
+
+          return { [prop]: Between(rangeValues[0], rangeValues[1]) }
         },
       },
     ],

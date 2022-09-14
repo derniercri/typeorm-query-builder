@@ -159,6 +159,17 @@ describe('Test FieldFilter #buildQuery', () => {
     expect(built['where']['name']).toEqual(Between(1, 10))
   })
 
+  it('should return a <between> filter (with date)', () => {
+    const fieldFilter = new FieldFilter({
+      query: built,
+      prop: 'name',
+      lookup: LookupFilter.BETWEEN,
+      value: '2022-08-01,2022-11-22',
+    })
+    fieldFilter.buildQuery()
+    expect(built['where']['name']).toEqual(Between('2022-08-01', '2022-11-22'))
+  })
+
   it('should return a <in> filter', () => {
     const fieldFilter = new FieldFilter({
       query: built,
